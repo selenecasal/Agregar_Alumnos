@@ -11,7 +11,11 @@ namespace ListaAlumnos
     {
         protected int anio;
         protected int curso;
-
+        public Alumno(int an, int cur)
+        {
+            anio = an;
+            curso = cur;
+        }
         protected int  Anio { get { return anio; } set { anio = value; } }
         protected int Curso { get { return curso;  } set { anio = value;  } }
     }

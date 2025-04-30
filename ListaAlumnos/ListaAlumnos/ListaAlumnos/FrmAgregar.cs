@@ -12,9 +12,12 @@ namespace ListaAlumnos
 {
     public partial class FrmAgregar: Form
     {
-        public FrmAgregar()
+        Frmmain forminicio;
+        
+        public FrmAgregar(Frmmain form)
         {
             InitializeComponent();
+            forminicio = form;
         }
 
         private void RbtProfesor_Click(object sender, EventArgs e)
@@ -27,6 +30,46 @@ namespace ListaAlumnos
         {
             GrbProf.Visible = false;
             GrbAlum.Visible = true;
+        }
+
+        private void BtnEnviar_Click(object sender, EventArgs e)
+        {
+            Persona nuevapersona;
+            if (RbtAlumno.Checked)
+            {
+                nuevapersona = new Alumno(int.Parse(TxtBoxAnio.Text), int.Parse(TxtBoxCurso.Text));
+            }else
+            {
+                Categoria newcat;
+                switch (CmbProf.Text)
+                {
+                    case "titular":
+                        newcat = Categoria.titular;
+                        break;
+                    case "suplente":
+                        newcat = Categoria.suplente;
+                        break;
+                    case "interino":
+                        newcat = Categoria.interino;
+                        break;
+                    default:
+                        newcat=Categoria.titular;
+                        break;
+                }
+                nuevapersona = new Profesor(TxtBoxMateria.Text, TxtBoxTitulo.Text, newcat);
+                
+            }
+            nuevapersona.Nombre = TxtNom.Text;
+            nuevapersona.Apellido= TxtApe.Text;
+            nuevapersona.Dni= int.Parse(TxtDNI.Text);
+            nuevapersona.Fechanac= DtpNacimiento.Value;
+            nuevapersona.Telefono= int.Parse(TxtTel.Text);
+            nuevapersona.Email= TxtEmail.Text;
+
+
+
+            this.Hide();
+            forminicio.Show();
         }
     }
 }

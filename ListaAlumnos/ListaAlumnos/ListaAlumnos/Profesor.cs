@@ -17,7 +17,11 @@ namespace ListaAlumnos
         protected string materia;
         protected string titulo;
         protected Categoria tipo;
-
+        public Profesor(string mat, string titu, Categoria tip) {
+            materia = mat;
+            titulo = titu;
+            tipo = tip;
+        }
         protected string Materia { get { return materia; } set { materia = value; } }
         protected string Titulo { get { return titulo; } set { titulo = value; } }
         public string Tipo

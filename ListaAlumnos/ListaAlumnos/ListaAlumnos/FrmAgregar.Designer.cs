@@ -46,14 +46,16 @@
             this.TxtDNI = new System.Windows.Forms.TextBox();
             this.LblDNI = new System.Windows.Forms.Label();
             this.BtnEnviar = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxtEmail = new System.Windows.Forms.TextBox();
             this.LblEmail = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.TxtBoxFecha = new System.Windows.Forms.TextBox();
+            this.TxtTel = new System.Windows.Forms.TextBox();
             this.LblTelefono = new System.Windows.Forms.Label();
             this.LblFecha = new System.Windows.Forms.Label();
             this.GrbProf = new System.Windows.Forms.GroupBox();
             this.GrbAlum = new System.Windows.Forms.GroupBox();
+            this.CmbProf = new System.Windows.Forms.ComboBox();
+            this.LblCat = new System.Windows.Forms.Label();
+            this.DtpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.GrbSelector.SuspendLayout();
             this.GrbProf.SuspendLayout();
             this.GrbAlum.SuspendLayout();
@@ -127,7 +129,7 @@
             // 
             // TxtBoxTitulo
             // 
-            this.TxtBoxTitulo.Location = new System.Drawing.Point(18, 79);
+            this.TxtBoxTitulo.Location = new System.Drawing.Point(6, 67);
             this.TxtBoxTitulo.Name = "TxtBoxTitulo";
             this.TxtBoxTitulo.Size = new System.Drawing.Size(164, 20);
             this.TxtBoxTitulo.TabIndex = 10;
@@ -135,7 +137,7 @@
             // LblMateria
             // 
             this.LblMateria.AutoSize = true;
-            this.LblMateria.Location = new System.Drawing.Point(15, 16);
+            this.LblMateria.Location = new System.Drawing.Point(3, 12);
             this.LblMateria.Name = "LblMateria";
             this.LblMateria.Size = new System.Drawing.Size(45, 13);
             this.LblMateria.TabIndex = 7;
@@ -143,7 +145,7 @@
             // 
             // TxtBoxMateria
             // 
-            this.TxtBoxMateria.Location = new System.Drawing.Point(18, 32);
+            this.TxtBoxMateria.Location = new System.Drawing.Point(6, 28);
             this.TxtBoxMateria.Name = "TxtBoxMateria";
             this.TxtBoxMateria.Size = new System.Drawing.Size(164, 20);
             this.TxtBoxMateria.TabIndex = 9;
@@ -151,7 +153,7 @@
             // Lbltitu
             // 
             this.Lbltitu.AutoSize = true;
-            this.Lbltitu.Location = new System.Drawing.Point(15, 55);
+            this.Lbltitu.Location = new System.Drawing.Point(3, 51);
             this.Lbltitu.Name = "Lbltitu";
             this.Lbltitu.Size = new System.Drawing.Size(36, 13);
             this.Lbltitu.TabIndex = 8;
@@ -207,19 +209,20 @@
             // 
             // BtnEnviar
             // 
-            this.BtnEnviar.Location = new System.Drawing.Point(327, 339);
+            this.BtnEnviar.Location = new System.Drawing.Point(328, 307);
             this.BtnEnviar.Name = "BtnEnviar";
             this.BtnEnviar.Size = new System.Drawing.Size(149, 59);
             this.BtnEnviar.TabIndex = 11;
             this.BtnEnviar.Text = "Enviar";
             this.BtnEnviar.UseVisualStyleBackColor = true;
+            this.BtnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
             // 
-            // textBox3
+            // TxtEmail
             // 
-            this.textBox3.Location = new System.Drawing.Point(220, 281);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(164, 20);
-            this.textBox3.TabIndex = 17;
+            this.TxtEmail.Location = new System.Drawing.Point(220, 281);
+            this.TxtEmail.Name = "TxtEmail";
+            this.TxtEmail.Size = new System.Drawing.Size(164, 20);
+            this.TxtEmail.TabIndex = 17;
             // 
             // LblEmail
             // 
@@ -230,19 +233,12 @@
             this.LblEmail.TabIndex = 16;
             this.LblEmail.Text = "Email:";
             // 
-            // textBox6
+            // TxtTel
             // 
-            this.textBox6.Location = new System.Drawing.Point(220, 235);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(164, 20);
-            this.textBox6.TabIndex = 15;
-            // 
-            // TxtBoxFecha
-            // 
-            this.TxtBoxFecha.Location = new System.Drawing.Point(220, 182);
-            this.TxtBoxFecha.Name = "TxtBoxFecha";
-            this.TxtBoxFecha.Size = new System.Drawing.Size(164, 20);
-            this.TxtBoxFecha.TabIndex = 14;
+            this.TxtTel.Location = new System.Drawing.Point(220, 235);
+            this.TxtTel.Name = "TxtTel";
+            this.TxtTel.Size = new System.Drawing.Size(164, 20);
+            this.TxtTel.TabIndex = 15;
             // 
             // LblTelefono
             // 
@@ -264,13 +260,15 @@
             // 
             // GrbProf
             // 
+            this.GrbProf.Controls.Add(this.LblCat);
+            this.GrbProf.Controls.Add(this.CmbProf);
             this.GrbProf.Controls.Add(this.TxtBoxTitulo);
             this.GrbProf.Controls.Add(this.Lbltitu);
             this.GrbProf.Controls.Add(this.LblMateria);
             this.GrbProf.Controls.Add(this.TxtBoxMateria);
             this.GrbProf.Location = new System.Drawing.Point(561, 30);
             this.GrbProf.Name = "GrbProf";
-            this.GrbProf.Size = new System.Drawing.Size(221, 126);
+            this.GrbProf.Size = new System.Drawing.Size(221, 149);
             this.GrbProf.TabIndex = 18;
             this.GrbProf.TabStop = false;
             // 
@@ -280,23 +278,53 @@
             this.GrbAlum.Controls.Add(this.LblCurso);
             this.GrbAlum.Controls.Add(this.TxtBoxCurso);
             this.GrbAlum.Controls.Add(this.LblAnio);
-            this.GrbAlum.Location = new System.Drawing.Point(565, 204);
+            this.GrbAlum.Location = new System.Drawing.Point(561, 202);
             this.GrbAlum.Name = "GrbAlum";
-            this.GrbAlum.Size = new System.Drawing.Size(216, 117);
+            this.GrbAlum.Size = new System.Drawing.Size(221, 117);
             this.GrbAlum.TabIndex = 19;
             this.GrbAlum.TabStop = false;
+            // 
+            // CmbProf
+            // 
+            this.CmbProf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbProf.FormattingEnabled = true;
+            this.CmbProf.Items.AddRange(new object[] {
+            "titular",
+            "suplente",
+            "interino"});
+            this.CmbProf.Location = new System.Drawing.Point(6, 108);
+            this.CmbProf.Name = "CmbProf";
+            this.CmbProf.Size = new System.Drawing.Size(152, 21);
+            this.CmbProf.TabIndex = 11;
+            // 
+            // LblCat
+            // 
+            this.LblCat.AutoSize = true;
+            this.LblCat.Location = new System.Drawing.Point(6, 92);
+            this.LblCat.Name = "LblCat";
+            this.LblCat.Size = new System.Drawing.Size(55, 13);
+            this.LblCat.TabIndex = 12;
+            this.LblCat.Text = "Categoria:";
+            // 
+            // DtpNacimiento
+            // 
+            this.DtpNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpNacimiento.Location = new System.Drawing.Point(220, 182);
+            this.DtpNacimiento.Name = "DtpNacimiento";
+            this.DtpNacimiento.Size = new System.Drawing.Size(200, 20);
+            this.DtpNacimiento.TabIndex = 20;
             // 
             // FrmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DtpNacimiento);
             this.Controls.Add(this.GrbAlum);
             this.Controls.Add(this.GrbProf);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.TxtEmail);
             this.Controls.Add(this.LblEmail);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.TxtBoxFecha);
+            this.Controls.Add(this.TxtTel);
             this.Controls.Add(this.LblTelefono);
             this.Controls.Add(this.LblFecha);
             this.Controls.Add(this.BtnEnviar);
@@ -340,13 +368,15 @@
         private System.Windows.Forms.Label LblAnio;
         private System.Windows.Forms.Label LblCurso;
         private System.Windows.Forms.Button BtnEnviar;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label LblEmail;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox TxtBoxFecha;
+        private System.Windows.Forms.TextBox TxtTel;
         private System.Windows.Forms.Label LblTelefono;
         private System.Windows.Forms.Label LblFecha;
         private System.Windows.Forms.GroupBox GrbProf;
         private System.Windows.Forms.GroupBox GrbAlum;
+        private System.Windows.Forms.Label LblCat;
+        private System.Windows.Forms.ComboBox CmbProf;
+        private System.Windows.Forms.DateTimePicker DtpNacimiento;
     }
 }
