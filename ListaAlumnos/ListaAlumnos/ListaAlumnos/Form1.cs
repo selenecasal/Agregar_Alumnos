@@ -12,15 +12,17 @@ namespace ListaAlumnos
 {
     public partial class Frmmain: Form
     {
-        FrmAgregar formagregar = new FrmAgregar();
+        FrmAgregar formagregar;
         public Frmmain()
         {
             InitializeComponent();
+            formagregar = new FrmAgregar(this);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             formagregar.Show();
+            this.Hide();
         }
 
     }
