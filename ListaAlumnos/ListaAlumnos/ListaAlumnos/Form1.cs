@@ -12,6 +12,7 @@ namespace ListaAlumnos
 {
     public partial class Frmmain: Form
     {
+        public List<Persona>listapersona = new List<Persona>();
         FrmAgregar formagregar;
         public Frmmain()
         {
@@ -24,6 +25,26 @@ namespace ListaAlumnos
             formagregar.Show();
             this.Hide();
         }
+        public void RefrescarDatagrid()
+        {
+            if (listapersona == null)
+            {
+                return;
+            }
+            if(listapersona.Count <= 0) { 
+                return; 
+            }
+            DgvPersonas.Rows.Clear();
+            foreach (Persona p in listapersona)
+            {
+                DgvPersonas.Rows.Add(p.Nombre, p.Apellido, p.Dni);
+            }
 
+        }
+
+        private void Frmmain_Activated(object sender, EventArgs e)
+        {
+            RefrescarDatagrid();
+        }
     }
 }

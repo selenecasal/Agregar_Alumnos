@@ -52,9 +52,9 @@
             this.LblTelefono = new System.Windows.Forms.Label();
             this.LblFecha = new System.Windows.Forms.Label();
             this.GrbProf = new System.Windows.Forms.GroupBox();
-            this.GrbAlum = new System.Windows.Forms.GroupBox();
-            this.CmbProf = new System.Windows.Forms.ComboBox();
             this.LblCat = new System.Windows.Forms.Label();
+            this.CmbProf = new System.Windows.Forms.ComboBox();
+            this.GrbAlum = new System.Windows.Forms.GroupBox();
             this.DtpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.GrbSelector.SuspendLayout();
             this.GrbProf.SuspendLayout();
@@ -209,7 +209,7 @@
             // 
             // BtnEnviar
             // 
-            this.BtnEnviar.Location = new System.Drawing.Point(328, 307);
+            this.BtnEnviar.Location = new System.Drawing.Point(328, 320);
             this.BtnEnviar.Name = "BtnEnviar";
             this.BtnEnviar.Size = new System.Drawing.Size(149, 59);
             this.BtnEnviar.TabIndex = 11;
@@ -272,17 +272,14 @@
             this.GrbProf.TabIndex = 18;
             this.GrbProf.TabStop = false;
             // 
-            // GrbAlum
+            // LblCat
             // 
-            this.GrbAlum.Controls.Add(this.TxtBoxAnio);
-            this.GrbAlum.Controls.Add(this.LblCurso);
-            this.GrbAlum.Controls.Add(this.TxtBoxCurso);
-            this.GrbAlum.Controls.Add(this.LblAnio);
-            this.GrbAlum.Location = new System.Drawing.Point(561, 202);
-            this.GrbAlum.Name = "GrbAlum";
-            this.GrbAlum.Size = new System.Drawing.Size(221, 117);
-            this.GrbAlum.TabIndex = 19;
-            this.GrbAlum.TabStop = false;
+            this.LblCat.AutoSize = true;
+            this.LblCat.Location = new System.Drawing.Point(6, 92);
+            this.LblCat.Name = "LblCat";
+            this.LblCat.Size = new System.Drawing.Size(55, 13);
+            this.LblCat.TabIndex = 12;
+            this.LblCat.Text = "Categoria:";
             // 
             // CmbProf
             // 
@@ -297,14 +294,17 @@
             this.CmbProf.Size = new System.Drawing.Size(152, 21);
             this.CmbProf.TabIndex = 11;
             // 
-            // LblCat
+            // GrbAlum
             // 
-            this.LblCat.AutoSize = true;
-            this.LblCat.Location = new System.Drawing.Point(6, 92);
-            this.LblCat.Name = "LblCat";
-            this.LblCat.Size = new System.Drawing.Size(55, 13);
-            this.LblCat.TabIndex = 12;
-            this.LblCat.Text = "Categoria:";
+            this.GrbAlum.Controls.Add(this.TxtBoxAnio);
+            this.GrbAlum.Controls.Add(this.LblCurso);
+            this.GrbAlum.Controls.Add(this.TxtBoxCurso);
+            this.GrbAlum.Controls.Add(this.LblAnio);
+            this.GrbAlum.Location = new System.Drawing.Point(561, 202);
+            this.GrbAlum.Name = "GrbAlum";
+            this.GrbAlum.Size = new System.Drawing.Size(221, 117);
+            this.GrbAlum.TabIndex = 19;
+            this.GrbAlum.TabStop = false;
             // 
             // DtpNacimiento
             // 
@@ -337,6 +337,7 @@
             this.Controls.Add(this.GrbSelector);
             this.Name = "FrmAgregar";
             this.Text = "Materia:";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAgregar_FormClosing);
             this.GrbSelector.ResumeLayout(false);
             this.GrbSelector.PerformLayout();
             this.GrbProf.ResumeLayout(false);

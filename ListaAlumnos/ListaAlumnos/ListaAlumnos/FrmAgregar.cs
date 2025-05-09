@@ -70,6 +70,14 @@ namespace ListaAlumnos
 
             this.Hide();
             forminicio.Show();
+            forminicio.listapersona.Add(nuevapersona);
+        }
+
+        private void FrmAgregar_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+            forminicio.Show();
         }
     }
 }
