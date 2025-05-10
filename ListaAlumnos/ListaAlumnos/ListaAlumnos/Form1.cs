@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ListaAlumnos
 {
-    public partial class Frmmain: Form
+    public partial class Frmmain: Form  //creo una clase publica, llamada Frmmain que hereda todo de form
     {
         public List<Persona>listapersona = new List<Persona>();
         FrmAgregar formagregar;

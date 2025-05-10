@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace ListaAlumnos
 {
-    public partial class FrmAgregar: Form
+    public partial class FrmAgregar: Form   //creo una clase publica, llamada formagregar que hereda todo de form
     {
-        Frmmain forminicio;
+        Frmmain forminicio; //creo una variable del tipo Frmmain, llamda forminicio, va a guardar una instancia del frmmain
         
-        public FrmAgregar(Frmmain form)
+        public FrmAgregar(Frmmain form) //este es el constructor, que recibe un parametro llamado form
         {
             InitializeComponent();
-            forminicio = form;
+            forminicio = form;  //la variable forminicio recibe el parametro llamado form, 
         }
 
         private void RbtProfesor_Click(object sender, EventArgs e)
